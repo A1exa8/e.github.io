@@ -1,0 +1,249 @@
+body {
+    background: url('https://images.unsplash.com/photo-1499678329028-101435549a4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    filter: blur(5px);
+    z-index: -1;
+}
+
+main {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 8px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 1200px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Обновленные стили для header */
+header {
+    background: rgba(41, 45, 62, 0.85); /* Полупрозрачный темный фон */
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    backdrop-filter: blur(5px); /* Добавляем размытие для эффекта "морозного стекла" */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+header p {
+    margin: 0.5rem 0 0;
+    font-size: 1.1rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+
+footer {
+    background: rgba(41, 45, 62, 0.85);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+    backdrop-filter: blur(5px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 10;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.world-map-container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    margin: -2rem -2rem 2rem; /* Компенсируем padding footer */
+    border-radius: 8px 8px 0 0;
+}
+
+.world-map-container h3 {
+    margin-top: 0;
+    color: white;
+    font-weight: 300;
+    font-size: 1.5rem;
+}
+
+main {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 8px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 1200px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2px);
+}
+
+/* Список городов */
+.cities-list {
+    margin-top: 2rem;
+}
+
+.city-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.city-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.city-card:hover {
+    transform: translateY(-5px);
+}
+
+.city-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.city-card h3 {
+    margin: 1rem;
+    color: #2c3e50;
+}
+
+.city-card p {
+    margin: 0 1rem 1rem;
+    color: #666;
+}
+
+.btn {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.6rem 1.5rem;
+    margin: 1rem 0 0;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    color: white;
+}
+
+
+
+/* Анимация при наведении (опционально) */
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.btn:hover::after {
+    transform: translateX(0);
+}
+
+/* Стили для кнопки на карточке города */
+.city-card .btn {
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+/* Адаптация для светлых карточек */
+.city-card {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.city-card .btn {
+    background: rgba(41, 45, 62, 0.8);
+    color: white;
+}
+
+.city-card .btn:hover {
+    background: rgba(41, 45, 62, 1);
+}
+/* Страница города */
+.city-detail {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.city-main-photo {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+}
+
+.city-info h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.5rem;
+}
+
+.city-facts {
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-top: 2rem;
+}
+
+.back-link {
+    color: #ecf0f1;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+/* Стили для карты */
+
+#world-map {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}

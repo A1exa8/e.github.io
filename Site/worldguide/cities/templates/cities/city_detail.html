@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ city.name }} - Путеводитель</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'cities/css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>{{ city.name }}, {{ city.country }}</h1>
+        <a href="{% url 'home' %}" class="back-link">← Назад к списку городов</a>
+    </header>
+    
+    <main>
+        <section class="city-detail">
+            {% if city.photo %}
+            <img src="{{ city.photo.url }}" alt="{{ city.name }}" class="city-main-photo">
+            {% endif %}
+            
+            <div class="city-info">
+                <h2>Описание</h2>
+                <p>{{ city.description }}</p>
+                
+                <div class="city-facts">
+                    <h3>Интересные факты:</h3>
+                    <p><strong>Главная достопримечательность:</strong> {{ city.main_attraction }}</p>
+                    <p><strong>Лучшее время для посещения:</strong> {{ city.best_time_to_visit }}</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="world-map-container">
+            <h3>Карта мира</h3>
+            <div id="world-map" style="height: 400px;"></div>
+        </div>
+        <p>© 2025 Путеводитель по городам мира</p>
+    </footer>
+    
+    <script src="{% static 'cities/js/script.js' %}"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin=""/>
+
+<!-- Подключаем Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+        crossorigin=""></script>
+
+<!-- Наш скрипт для карты -->
+    <script src="{% static 'cities/js/map.js' %}"></script>
+</body>
+</html>

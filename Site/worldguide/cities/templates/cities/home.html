@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Путеводитель по городам мира</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'cities/css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Путеводитель по городам мира</h1>
+        <p>Откройте для себя лучшие туристические места и советы для путешественников</p>
+    </header>
+    
+    <main>
+        <section class="cities-list">
+            <h1>Открывайте новые горизонты</h1>
+            <p>Путешествия — это не просто смена локаций, это погружение в культуру, история и атмосферу места. В этом путеводителе вы найдете описание самых интересных городов мира — от древних столиц с тысячелетней историей до современных мегаполисов, от уютных европейских улочек до экзотических уголков планеты.</p>
+            <p>Каждый город — это уникальный маршрут, наполненный достопримечательностями, гастрономическими открытиями и незабываемыми впечатлениями. Мы собрали не только ключевые места для посещения, но и практические советы:</p>
+            <ul>Лучшее время для поездки — чтобы избежать толп или непогоды.</ul>
+            <ul>Главные must-see локации — то, что точно нельзя пропустить.</ul>
+            <ul>Скрытые gems — малоизвестные, но потрясающие места.</ul>
+            <ul>Лайфхаки для туристов — как сэкономить, где попробовать аутентичную кухню и как избежать типичных ошибок.</ul>
+            <p>Готовы отправиться в виртуальное путешествие? Тогда выбирайте город и вдохновляйтесь на реальное приключение!</p>
+            <h2>Города</h2>
+            <div class="city-cards">
+                {% for city in cities %}
+                <div class="city-card">
+                    {% if city.photo %}
+                    <img src="{{ city.photo.url }}" alt="{{ city.name }}">
+                    {% endif %}
+                    <h3>{{ city.name }}, {{ city.country }}</h3>
+                    <p>{{ city.description|truncatewords:20 }}</p>
+                    <a href="{% url 'city_detail' city.id %}" class="btn">Подробнее</a>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="world-map-container">
+            <h3>Карта мира</h3>
+            <div id="world-map" style="height: 400px;"></div>
+        </div>
+        <p>© 2025 Путеводитель по городам мира</p>
+    </footer>
+    
+    <script src="{% static 'cities/js/script.js' %}"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin=""/>
+
+<!-- Подключаем Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+        crossorigin=""></script>
+
+<!-- Наш скрипт для карты -->
+    <script src="{% static 'cities/js/map.js' %}"></script>
+</body>
+</html>
